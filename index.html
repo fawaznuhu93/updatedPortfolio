@@ -430,6 +430,117 @@
             font-weight: 500;
         }
 
+        /* Live Sites Section */
+        .live-sites-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .live-site-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .live-site-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--success);
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.2);
+        }
+
+        .site-img {
+            height: 220px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-img.mckeown {
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+        }
+
+        .site-img.gulf-tea {
+            background: linear-gradient(135deg, #059669, #10b981);
+        }
+
+        .site-img.sips-tea {
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+        }
+
+        /* Sparkle Overlay */
+        .sparkle-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .sparkle-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sparkle-text {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 40px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.8s ease;
+        }
+
+        .sparkle-overlay.active .sparkle-text {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px var(--accent);
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                transform: scale(0.5) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -502,6 +613,28 @@
             resize: vertical;
         }
 
+        /* Form success message */
+        .form-success {
+            display: none;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--success);
+        }
+
+        .form-success.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Footer */
         footer {
             background-color: rgba(15, 23, 42, 0.95);
@@ -535,8 +668,19 @@
         }
 
         .social-link:hover {
-            background: var(--primary);
             transform: translateY(-5px);
+        }
+
+        .social-link.whatsapp:hover {
+            background: #25D366;
+        }
+
+        .social-link.x:hover {
+            background: #000000;
+        }
+
+        .social-link.github:hover {
+            background: #333;
         }
 
         .copyright {
@@ -554,6 +698,10 @@
             
             .contact-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .sparkle-text {
+                font-size: 3rem;
             }
         }
 
@@ -596,8 +744,13 @@
                 font-size: 2.2rem;
             }
             
-            .projects-container {
+            .projects-container,
+            .live-sites-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .sparkle-text {
+                font-size: 2.5rem;
             }
         }
 
@@ -613,6 +766,10 @@
             .footer-content {
                 flex-direction: column;
                 gap: 30px;
+            }
+            
+            .sparkle-text {
+                font-size: 2rem;
             }
         }
 
@@ -640,6 +797,11 @@
     </style>
 </head>
 <body>
+    <!-- Sparkle Overlay -->
+    <div class="sparkle-overlay" id="sparkleOverlay">
+        <div class="sparkle-text">Enjoy Live Sites!</div>
+    </div>
+
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container">
@@ -652,6 +814,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#live-sites">Live Sites</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -661,11 +824,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content fade-in">
+            <div class="hero-content fade-in"><br>
                 <h1>Fawaz Nuhu Yusuf</h1>
                 <h2><span class="highlight">World-Class</span> Web Developer</h2>
                 <p>I create exceptional digital experiences that drive results. With a passion for clean code, innovative design, and cutting-edge technology, I build web solutions that not only look stunning but perform flawlessly.</p>
-                <a href="#contact" class="cta-button">Hire Me Today</a>
+                <a href="#contact" class="cta-button" id="hireMeButton">Hire Me Today</a>
             </div>
         </div>
         
@@ -818,6 +981,72 @@
         </div>
     </section>
 
+    <!-- Live Sites Section -->
+    <section id="live-sites">
+        <div class="container">
+            <h2 class="section-title">Live <span class="highlight">Websites</span></h2>
+            <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; margin-bottom: 30px;">
+                Check out my latest live websites that are currently deployed and fully functional.
+            </p>
+            
+            <div class="live-sites-container">
+                <a href="https://mckeown-slices-z54e.vercel.app/" target="_blank" class="live-site-card fade-in">
+                    <div class="site-img mckeown">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>McKeown Slices</h3>
+                        <p>A modern pizza restaurant website with online ordering system and menu display.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">Google Maps API</span>
+                            <span class="tech-tag">FormSubmit</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://gulf-tea-house.vercel.app/" target="_blank" class="live-site-card fade-in">
+                    <div class="site-img gulf-tea">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Gulf Tea House</h3>
+                        <p>An elegant tea house website showcasing premium tea products and serene ambiance.</p>
+                        <div class="project-tech">
+                             <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                            <span class="tech-tag">react</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">Google Maps API</span>
+                            <span class="tech-tag">FormSubmit</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://9sips-tea-shoppe.vercel.app/" target="_blank" class="live-site-card fade-in">
+                    <div class="site-img sips-tea">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>9Sips Tea Shoppe</h3>
+                        <p>An online tea store with product catalog, shopping cart, and checkout functionality.</p>
+                        <div class="project-tech">
+                             <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                            <span class="tech-tag">react</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">Google Maps API</span>
+                            <span class="tech-tag">FormSubmit</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -861,24 +1090,38 @@
                 </div>
                 
                 <div class="contact-form fade-in">
-                    <form id="contactForm">
+                    <!-- FormSubmit form with fawaznuhu93@gmail.com -->
+                    <form action="https://formsubmit.co/fawaznuhu93@gmail.com" 
+                    method="POST">
+                        <!-- FormSubmit configurations -->
+                        <input type="hidden" name="_subject" value="New Portfolio Contact - fawaznuhu93@gmail.com">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="#contact">
+                        
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Project Details</label>
-                            <textarea id="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
                         </div>
                         
                         <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
                     </form>
+                    <!-- Success message -->
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -891,23 +1134,23 @@
                 <div class="logo">Fawaz<span>.</span></div>
                 
                 <div class="social-links">
-                    <a href="https://wa.me/qr/OB5KFVMY4DZTH1" class="social-link">
-                        <i class="fab fa-github"></i>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/qr/OB5KFVMY4DZTH1" target="_blank" class="social-link whatsapp">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-link">
+                    <!-- X (Twitter) -->
+                    <a href="https://x.com/FawazNuhuyusuf" target="_blank" class="social-link x">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-codepen"></i>
+                    <!-- GitHub -->
+                    <a href="https://github.com/fawaznuhu93" target="_blank" class="social-link github">
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Fawaz Nuhu Yusuf. All Rights Reserved.</p>
+                <p>&copy; 2026 Fawaz Nuhu Yusuf. All Rights Reserved.</p>
                 <p style="margin-top: 10px;">Crafted with <i class="fas fa-heart" style="color: #ef4444;"></i> and exceptional code</p>
             </div>
         </div>
@@ -943,23 +1186,95 @@
             }
         });
         
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
+        // Fix Hire Me button
+        const hireMeButton = document.getElementById('hireMeButton');
+        hireMeButton.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real application, you would send this data to a server
-            // For this demo, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you at ${email} as soon as possible.`);
-            
-            // Reset form
-            contactForm.reset();
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
+        
+        // Sparkle overlay for Live Sites section
+        const sparkleOverlay = document.getElementById('sparkleOverlay');
+        let sparkleShown = false;
+        
+        // Function to create sparkles
+        function createSparkles() {
+            const overlay = sparkleOverlay;
+            const sparkleCount = 50;
+            
+            // Clear existing sparkles
+            const existingSparkles = overlay.querySelectorAll('.sparkle');
+            existingSparkles.forEach(sparkle => sparkle.remove());
+            
+            // Create new sparkles
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                
+                // Random position
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                
+                // Random size
+                const size = Math.random() * 20 + 10;
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                
+                // Random animation delay
+                sparkle.style.animationDelay = Math.random() * 1.5 + 's';
+                
+                // Random color
+                const colors = ['#06b6d4', '#2563eb', '#7c3aed', '#10b981', '#ffffff'];
+                sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                sparkle.style.boxShadow = `0 0 ${size/2}px ${sparkle.style.background}, 
+                                          0 0 ${size}px ${sparkle.style.background}, 
+                                          0 0 ${size*1.5}px ${sparkle.style.background}`;
+                
+                overlay.appendChild(sparkle);
+            }
+        }
+        
+        // Function to show sparkle overlay
+        function showSparkleOverlay() {
+            if (sparkleShown) return;
+            
+            sparkleShown = true;
+            createSparkles();
+            sparkleOverlay.classList.add('active');
+            
+            // Remove overlay after 3 seconds
+            setTimeout(() => {
+                sparkleOverlay.classList.remove('active');
+                // Scroll to live sites section
+                setTimeout(() => {
+                    document.getElementById('live-sites').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 500);
+            }, 3000);
+        }
+        
+        // Handle Live Sites navigation click
+        document.querySelectorAll('a[href="#live-sites"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSparkleOverlay();
+            });
+        });
+        
+        // Handle form submission success
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
+            document.getElementById('formSuccess').classList.add('show');
+            // Scroll to contact section
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // Clear the URL parameter
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
         
         // Fade-in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -981,44 +1296,7 @@
         
         // Initialize particles.js background
         document.addEventListener('DOMContentLoaded', function() {
-            // Particles.js configuration
-            const particlesConfig = {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#06b6d4" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.3, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#2563eb",
-                        opacity: 0.2,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: "none",
-                        random: true,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false
-                    }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: { enable: true, mode: "repulse" },
-                        onclick: { enable: true, mode: "push" },
-                        resize: true
-                    }
-                },
-                retina_detect: true
-            };
-            
-            // Since we can't load external libraries in a single file,
-            // We'll create a simple particle system with vanilla JS
+            // Simple particle system
             createSimpleParticles();
             
             function createSimpleParticles() {
