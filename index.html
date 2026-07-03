@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fawaz Nuhu Yusuf | World-Class Web Developer</title>
+    <title>Fawaz Nuhu Yusuf | Frontend Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -294,7 +294,7 @@
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
@@ -679,6 +679,10 @@
             background: #000000;
         }
 
+        .social-link.linkedin:hover {
+            background: #0A66C2;
+        }
+
         .social-link.github:hover {
             background: #333;
         }
@@ -824,9 +828,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content fade-in"><br>
+            <div class="hero-content fade-in">
                 <h1>Fawaz Nuhu Yusuf</h1>
-                <h2><span class="highlight">World-Class</span> Web Developer</h2>
+                <h2><span class="highlight">Frontend</span> Developer</h2>
                 <p>I create exceptional digital experiences that drive results. With a passion for clean code, innovative design, and cutting-edge technology, I build web solutions that not only look stunning but perform flawlessly.</p>
                 <a href="#contact" class="cta-button" id="hireMeButton">Hire Me Today</a>
             </div>
@@ -848,73 +852,67 @@
         <div class="container">
             <h2 class="section-title">My <span class="highlight">Expertise</span></h2>
             <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; margin-bottom: 30px;">
-                I specialize in modern web technologies and frameworks, delivering high-performance applications with exceptional user experiences.
+                I specialize in modern frontend technologies and frameworks, delivering high-performance applications with exceptional user experiences.
             </p>
             
             <div class="skills-grid">
+                <!-- React Card -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">
-                        <i class="fab fa-js-square"></i>
+                        <i class="fab fa-react"></i>
                     </div>
-                    <h3>JavaScript & Frameworks</h3>
-                    <p>Mastery of modern JavaScript, React, Vue, and Node.js for building dynamic, scalable applications.</p>
+                    <h3>React & Modern Frameworks</h3>
+                    <p>Expert in React.js, Next.js, and modern JavaScript frameworks for building dynamic, component-based user interfaces.</p>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 95%"></div>
                     </div>
                 </div>
                 
+                <!-- JavaScript Card -->
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3>JavaScript & TypeScript</h3>
+                    <p>Mastery of modern JavaScript (ES6+), TypeScript, and frontend tooling for building robust, type-safe applications.</p>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 93%"></div>
+                    </div>
+                </div>
+                
+                <!-- Frontend Development Card -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Frontend Development</h3>
-                    <p>Expert in HTML5, CSS3, Sass, and responsive design principles to create visually stunning interfaces.</p>
+                    <p>Expert in HTML5, CSS3, React, Sass, and responsive design principles to create visually stunning and interactive interfaces.</p>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 98%"></div>
                     </div>
                 </div>
                 
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Backend Development</h3>
-                    <p>Proficient in server-side technologies including Node.js, Express, MongoDB, and RESTful API design.</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
-                    </div>
-                </div>
-                
+                <!-- Responsive Design Card -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Responsive Design</h3>
-                    <p>Creating seamless experiences across all devices with mobile-first approach and adaptive layouts.</p>
+                    <h3>Responsive & Mobile-First Design</h3>
+                    <p>Creating seamless experiences across all devices with mobile-first approach, adaptive layouts, and modern CSS techniques.</p>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 97%"></div>
                     </div>
                 </div>
                 
+                <!-- Performance Optimization Card -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Performance Optimization</h3>
-                    <p>Optimizing websites for speed, SEO, and accessibility to ensure maximum reach and engagement.</p>
+                    <h3>Performance & Optimization</h3>
+                    <p>Optimizing frontend applications for speed, Core Web Vitals, SEO, and accessibility to ensure maximum reach and engagement.</p>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 92%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Creating intuitive user interfaces with focus on user experience, accessibility, and modern design trends.</p>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 88%"></div>
                     </div>
                 </div>
             </div>
@@ -930,50 +928,37 @@
             </p>
             
             <div class="projects-container">
+                <!-- EidCard.io Project -->
                 <div class="project-card fade-in">
                     <div class="project-img">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-envelope-open-text"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Financial Analytics Dashboard</h3>
-                        <p>A comprehensive dashboard for real-time financial data visualization with interactive charts and predictive analytics.</p>
+                        <h3>EidCard.io</h3>
+                        <p>A premium Eid celebration card platform where users can customize a card with their name and personalized message, select from various unique designs, and make a payment to instantly download the card for sharing.</p>
                         <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">D3.js</span>
                             <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-img">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A full-featured online shopping platform with user authentication, payment integration, and inventory management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
                             <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Stripe API</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Paystack API</span>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Blueprint Generator Project -->
                 <div class="project-card fade-in">
                     <div class="project-img">
-                        <i class="fas fa-video"></i>
+                        <i class="fas fa-drafting-compass"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Streaming Service UI</h3>
-                        <p>A modern streaming interface with personalized recommendations, multi-profile support, and offline viewing.</p>
+                        <h3>Blueprint Generator</h3>
+                        <p>A tech startup project that automatically generates house plans using template-based generation. The goal is to integrate an AI model for future advanced generation.</p>
                         <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">Redux</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">SCSS</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">GitHub</span>
                         </div>
                     </div>
                 </div>
@@ -999,11 +984,11 @@
                         <p>A modern pizza restaurant website with online ordering system and menu display.</p>
                         <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">TailwindCSS</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">TailwindCSS</span>
                             <span class="tech-tag">Google Maps API</span>
                             <span class="tech-tag">FormSubmit</span>
+                            <span class="tech-tag">Responsive</span>
                         </div>
                     </div>
                 </a>
@@ -1016,12 +1001,12 @@
                         <h3>Gulf Tea House</h3>
                         <p>An elegant tea house website showcasing premium tea products and serene ambiance.</p>
                         <div class="project-tech">
-                             <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
                             <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">react</span>
-                            <span class="tech-tag">Responsive</span>
                             <span class="tech-tag">Google Maps API</span>
                             <span class="tech-tag">FormSubmit</span>
+                            <span class="tech-tag">Responsive</span>
                         </div>
                     </div>
                 </a>
@@ -1034,12 +1019,12 @@
                         <h3>9Sips Tea Shoppe</h3>
                         <p>An online tea store with product catalog, shopping cart, and checkout functionality.</p>
                         <div class="project-tech">
-                             <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
                             <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">react</span>
-                            <span class="tech-tag">Responsive</span>
                             <span class="tech-tag">Google Maps API</span>
                             <span class="tech-tag">FormSubmit</span>
+                            <span class="tech-tag">Responsive</span>
                         </div>
                     </div>
                 </a>
@@ -1091,8 +1076,7 @@
                 
                 <div class="contact-form fade-in">
                     <!-- FormSubmit form with fawaznuhu93@gmail.com -->
-                    <form action="https://formsubmit.co/fawaznuhu93@gmail.com" 
-                    method="POST">
+                    <form action="https://formsubmit.co/fawaznuhu93@gmail.com" method="POST">
                         <!-- FormSubmit configurations -->
                         <input type="hidden" name="_subject" value="New Portfolio Contact - fawaznuhu93@gmail.com">
                         <input type="hidden" name="_template" value="table">
@@ -1137,6 +1121,10 @@
                     <!-- WhatsApp -->
                     <a href="https://wa.me/qr/OB5KFVMY4DZTH1" target="_blank" class="social-link whatsapp">
                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/fawaz-yusuf93" target="_blank" class="social-link linkedin">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <!-- X (Twitter) -->
                     <a href="https://x.com/FawazNuhuyusuf" target="_blank" class="social-link x">
